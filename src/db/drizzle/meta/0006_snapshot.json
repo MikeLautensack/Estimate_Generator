@@ -1,8 +1,8 @@
 {
   "version": "5",
   "dialect": "pg",
-  "id": "d53be15c-3515-4c73-81e9-ebb77cfb7451",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "dfad1cf4-40de-456b-a13f-45822a3d1eaa",
+  "prevId": "dd518809-6ca2-4eaf-b281-10f5ce0d9b5a",
   "tables": {
     "accounts": {
       "name": "accounts",
@@ -86,7 +86,10 @@
       "compositePrimaryKeys": {
         "accounts_provider_providerAccountId": {
           "name": "accounts_provider_providerAccountId",
-          "columns": ["provider", "providerAccountId"]
+          "columns": [
+            "provider",
+            "providerAccountId"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -153,6 +156,12 @@
           "primaryKey": false,
           "notNull": false
         },
+        "new_user": {
+          "name": "new_user",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
         "emailVerified": {
           "name": "emailVerified",
           "type": "timestamp",
@@ -205,7 +214,10 @@
       "compositePrimaryKeys": {
         "verificationToken_identifier_token": {
           "name": "verificationToken_identifier_token",
-          "columns": ["identifier", "token"]
+          "columns": [
+            "identifier",
+            "token"
+          ]
         }
       },
       "uniqueConstraints": {}
@@ -416,27 +428,31 @@
         },
         "subtotal": {
           "name": "subtotal",
-          "type": "numeric(14, 2)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "tax_rate": {
           "name": "tax_rate",
-          "type": "numeric(2, 2)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "tax": {
           "name": "tax",
-          "type": "numeric(14, 2)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "total": {
           "name": "total",
-          "type": "numeric(14, 2)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "status": {
           "name": "status",
@@ -516,15 +532,17 @@
         },
         "price": {
           "name": "price",
-          "type": "varchar(255)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "amount": {
           "name": "amount",
-          "type": "numeric(14, 2)",
+          "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": 10.1
         },
         "date_created": {
           "name": "date_created",
@@ -566,25 +584,25 @@
           "name": "business_name",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "business_address": {
           "name": "business_address",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "business_email": {
           "name": "business_email",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "business_phone": {
           "name": "business_phone",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "date_created": {
           "name": "date_created",
@@ -602,7 +620,7 @@
           "name": "user_id",
           "type": "bigint",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         }
       },
       "indexes": {},
